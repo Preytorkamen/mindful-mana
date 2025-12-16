@@ -66,9 +66,10 @@ function authMiddleware(req, res, next) {
     }
 }
 
-app.use(cors({ origin: "mindful-mana.vercel.app" })); // Allow requests from frontend
+app.use(cors({ origin: "https://mindful-mana.vercel.app" })); // Allow requests from frontend
 
 app.use(express.json()); // Parse JSON request bodies
+app.set("trust proxy", 1);
 
 // Simple test route
 app.get('/api/health', (req, res) => {
