@@ -66,7 +66,7 @@ function authMiddleware(req, res, next) {
     }
 }
 
-app.use(cors({ origin: 'http://localhost:5173' })); // Allow requests from frontend
+app.use(cors({ origin: "mindful-mana.vercel.app" })); // Allow requests from frontend
 
 app.use(express.json()); // Parse JSON request bodies
 

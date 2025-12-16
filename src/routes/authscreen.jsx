@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "../components/Header.jsx";
 
 
-const API = "http://localhost:5000/api";
+const API = import.meta.env.VITE_API_URL;
 
 export default function AuthScreen({ onAuthSuccess }) {
     const [mode, setMode] = useState("login"); // "login" or "register"
