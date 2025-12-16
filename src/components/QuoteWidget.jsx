@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL } from "../apiconfig.js";
 
 function QuoteWidget() {
     const [quote, setQuote] = useState('Loading your daily quote...');
@@ -9,7 +9,7 @@ function QuoteWidget() {
         const fetchQuote = async () => {
             try {
                 const res = await fetch(
-                    `${API_BASE_URL}/api/quotes/random`
+                    `${API_BASE_URL}/api/quotes/random`,
                 );
                 if (!res.ok) throw new Error('Failed to fetch quote');
                 const data = await res.json();
