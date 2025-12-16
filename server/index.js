@@ -85,7 +85,7 @@ const quotes = [
     "In the middle of every difficulty lies opportunity. - Albert Einstein"
 ];
 
-app.get('api/quotes/random', (req, res) => {
+app.get('/api/quotes/random', (req, res) => {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     res.json({ quote: randomQuote });
 });
@@ -197,7 +197,7 @@ app.get('/api/me', authMiddleware, async (req, res) => {
 });
 
 // Dashboard Summary
-app.get('api/sessions/summary', authMiddleware, async (req, res) => {
+app.get('/api/sessions/summary', authMiddleware, async (req, res) => {
     try {
         const userID = req.user.id;
         
@@ -250,7 +250,7 @@ const dailyMinutes = dailyResult.rows;
 });
 
 // POST /api/sessions (Logging a meditation session)
-app.post('api/sessions', authMiddleware, async (req, res) => {
+app.post('/api/sessions', authMiddleware, async (req, res) => {
     try {
         const { durationMinutes } = req.body;
 
