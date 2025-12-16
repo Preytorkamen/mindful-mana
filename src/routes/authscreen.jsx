@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "../components/Header.jsx";
 
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL?.replace(/\/$/, "");
 
 export default function AuthScreen({ onAuthSuccess }) {
     const [mode, setMode] = useState("login"); // "login" or "register"
@@ -15,7 +15,7 @@ export default function AuthScreen({ onAuthSuccess }) {
         setError("");
 
         const endpoint =
-            mode === "login" ? "/auth/login" : "/auth/register";
+            mode === "login" ? "api/auth/login" : "api/auth/register";
 
         try {
             const res = await fetch(API + endpoint, {
