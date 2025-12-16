@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { API_BASE_URL } from "../config";
 
 function QuoteWidget() {
     const [quote, setQuote] = useState('Loading your daily quote...');
@@ -8,14 +9,14 @@ function QuoteWidget() {
         const fetchQuote = async () => {
             try {
                 const res = await fetch(
-                    `${import.meta.env.VITE_API_URL}/api/quotes/random`
+                    `${API_BASE_URL}/api/quotes/random`
                 );
                 if (!res.ok) throw new Error('Failed to fetch quote');
-                const url = `${import.meta.env.VITE_API_URL}/api/sessions/summary`;
                 const data = await res.json();
                 setQuote(data.quote);
             } catch (err) {
-                throw new Error(`${url}`);
+                 console.error("Quote fetch failed:", err);
+                 setError("In the middle of every difficulty lies opportunity. - Albert Einstein");
             }
         };
         
