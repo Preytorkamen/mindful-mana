@@ -15,8 +15,7 @@ function QuoteWidget() {
                 const data = await res.json();
                 setQuote(data.quote);
             } catch (err) {
-                setError(`${url}`);
-                console.error(err);
+                throw new Error(`${url}`);
             }
         };
         
