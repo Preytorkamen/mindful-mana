@@ -34,12 +34,13 @@ export default function StatsDashboard({ user, token }) {
         });
 
         if (!res.ok) {
+            const url = `${import.meta.env.VITE_API_URL}/api/sessions/summary`;
             let msg = "Failed to fetch sessions summary";
             try {
             const errData = await res.json();
             msg = errData.error || msg;
             } catch {}
-            throw new Error(`${res.status} ${msg}`);
+            throw new Error(`${res.status} ${msg} ${url}`);
         }
 
         const data = await res.json();
