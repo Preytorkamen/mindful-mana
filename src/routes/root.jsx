@@ -1,0 +1,51 @@
+import { Link, Outlet } from "react-router-dom";
+import { useState } from "react";
+import Header from "../components/Header.jsx";
+import QuoteWidget from "../components/QuoteWidget.jsx";
+import AuthScreen from "./authscreen";
+import monk from "../assets/Monk.png";
+import Session from "./session";
+
+import "../styles/index.css";
+import "../styles/root.css";
+import "../styles/backgrounds.css";
+import StatsDashboard from "../components/StatsDashboard.jsx";
+
+export default function Root() {
+  const [auth, setAuth] = useState(() => {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+    return token && user
+      ? { token, user: JSON.parse(user) }
+      : { token: null, user: null };
+  });
+
+  const user = auth.user;
+  const token = auth.token;
+
+  function handleAuthSuccess({ user, token }) {
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(user));
+    setAuth({ user, token });
+  }
+
+  function handleLogout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setAuth({ user: null, token: null });
+  }
+
+  if (!token) {
+    return <AuthScreen onAuthSuccess={handleAuthSuccess} />;
+  }
+
+  return (
+    <Outlet
+      context={{
+        user,
+        token,
+        handleLogout,
+      }}
+    />
+  );
+}

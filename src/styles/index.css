@@ -1,0 +1,220 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+#root {
+  /* Colors */
+  --main-primary: rgb(129, 80, 162);
+  --main-shadow: rgb(67, 16, 92);
+  --main-text: rgb(99, 79, 142);
+
+
+
+  /* max-width: 1920px; */
+  margin: 0px auto;
+  padding: 0.0rem;
+  text-align: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Trying to implement responsive design */
+/* Full-page centering */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+/* The phone-shaped gradient card */
+.app-card {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 420px;         /* never wider than this */
+  padding: 1.5rem 1.75rem;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  overflow:hidden;
+  position:relative;
+}
+
+/* Header area */
+.app-header {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+/* Tablet and up */
+@media (min-width: 768px) {
+  .app-card {
+    max-width: 700px;
+  }
+}
+
+/* @media (min-width: 1200px) {
+  .app-card {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-card {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .app-card {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+  .app-card {
+    max-width: 1536px;
+  }
+}
+@media (min-width: 1920px) {
+  .app-card {
+    max-width: 1920px;
+  }
+} */
+
+/* Tiny phones */
+@media (max-width: 480px) {
+  .app-card {
+    padding: 1.1rem 0.9rem;
+  }
+  .field {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  label {
+    justify-self: start;
+  }
+  .button-container{
+    display: grid;
+    gap: 10px;
+  }
+
+  .monk-image {
+    width: 200px;
+  }
+
+  input {
+    width: 100%;
+  }
+  .form-btn {
+    width: 70%;
+    justify-content: center;
+  }
+}
+
+
+.ghost{
+  appearance: none;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: rgb(255, 255, 255);
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--main-text);
+}
+
+.ghost:hover {
+  background:rgb(255, 255, 255);
+  box-shadow: 0px 0px 25px rgb(255, 255, 255);
+}
+
+.header h1 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 400;
+  margin: 0;
+  color: var(--main-primary);
+  letter-spacing: 0.5px;
+}
+
+h4, h3 {
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  text-shadow: 0px 0px 6px var(--main-shadow);
+}
+
+.auth-form{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-container{
+  display: flex;
+  align-items: center;
+}
+
+.form-btn:hover {
+  background:rgb(255, 255, 255);
+  box-shadow: 0px 0px 5px rgb(255, 255, 255);
+}
+.form-container{
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+}
+
+.field{
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  font-size: larger;
+  font-weight: 600;
+  justify-self: end;
+  margin: 0;          /* your h3,label rule adds margins; this prevents misalignment */
+  white-space: nowrap;
+  color: rgb(255, 255, 255);
+}
+
+.form-btn {
+  margin:12px;
+}
+
+input{
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.15);
+  color: var(--main-text);
+  outline: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+}

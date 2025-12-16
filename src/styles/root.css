@@ -1,0 +1,73 @@
+/* Monk image as a perfect circle */
+.monk-image {
+  width: min(300px, 100vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px rgb(255, 255, 255);
+/* background: radial-gradient(circle at 30% 30%, #ffb347, #ff7a18); */
+}
+
+.monk-image img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.dashboard-card {
+  margin-top: 48px;
+}
+
+/* Button + link */
+.begin-link {
+  text-decoration: none;
+  margin-bottom: 2rem;
+}
+
+/* Quote styling */
+.quote-widget {
+  max-width: 90%;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.app-card-root {
+  width: 100%;
+  max-width: 420px;         /* never wider than this */
+  padding: 1.5rem 1.75rem;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #fcd9b6, #f5b47e);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  overflow:hidden;
+  position:relative;
+}
+
+.large-ghost{
+  appearance: none;
+  width: 15rem;
+  height: 3rem;
+  font-size: larger;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: rgb(255, 149, 0);
+  padding: .45rem .75rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  margin-top: 2rem;
+}
+
+.large-ghost:hover {
+  background: rgb(255, 185, 88);
+}
