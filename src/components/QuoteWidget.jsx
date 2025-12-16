@@ -11,10 +11,11 @@ function QuoteWidget() {
                     `${import.meta.env.VITE_API_URL}/api/quotes/random`
                 );
                 if (!res.ok) throw new Error('Failed to fetch quote');
+                const url = `${import.meta.env.VITE_API_URL}/api/sessions/summary`;
                 const data = await res.json();
                 setQuote(data.quote);
             } catch (err) {
-                setError('In the middle of every difficulty lies opportunity. - Albert Einstein');
+                setError(`${url}`);
                 console.error(err);
             }
         };
